@@ -3,7 +3,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "action": {
-      "$id": "action",
       "type": ["object", "null"],
       "properties": {
         "type": {
@@ -80,14 +79,12 @@
       }
     },
     "sectors": {
-      "$id": "sectors",
       "type": "object",
       "properties": {
         "sectors": {
           "type": "object",
           "patternProperties": {
             "^(?i)(left|right)$": {
-              "$id":"sector_left_right",
               "type": "object",
               "properties": {
                 "parts": {
@@ -107,7 +104,6 @@
               "additionalProperties": false
             },
             "^(?i)(top|bottom)$": {
-              "$id":"sector_top_bottom",
               "type": "object",
               "properties": {
                 "parts": {
@@ -133,7 +129,6 @@
       "additionalProperties": false
     },
     "actionList": {
-      "$id": "actionList",
       "type": "array",
       "items": {
         "$ref": "#/$defs/action"
@@ -144,11 +139,9 @@
       }
     },
     "info": {
-      "description": "Layout informations",
       "type": "object",
       "properties": {
         "contact": {
-          "description": "Contact informations of the author",
           "type": "object",
           "properties": {
             "email": {
