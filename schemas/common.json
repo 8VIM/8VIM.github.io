@@ -1,8 +1,9 @@
 {
-  "$id": "https://8vim.github.io/schemas/versions/2.json",
-  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "$id": "https://8vim.github.io/schemas/common.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "action": {
+      "$id": "action",
       "type": ["object", "null"],
       "properties": {
         "type": {
@@ -31,9 +32,9 @@
         },
         "key_code": {
           "type": "string",
-          "pattern": "^(?i)(keycode_.+|move_current_end_point_left|move_current_end_point_right|move_current_end_point_up|move_current_end_point_down|selection_start|select_all|toggle_selection_anchor|shift_toggle|switch_to_main_keypad|switch_to_number_keypad|switch_to_symbols_keypad|switch_to_selection_keypad|switch_to_emoticon_keyboard|hide_keyboard|no_operation)$",
+          "pattern": "^(?i)(keycode_.+|move_current_end_point_left|move_current_end_point_right|move_current_end_point_up|move_current_end_point_down|selection_start|select_all|toggle_selection_anchor|shift_toggle|switch_to_main_keypad|switch_to_number_keypad|switch_to_symbols_keypad|switch_to_selection_keypad|switch_to_emoticon_keyboard|hide_keyboard|no_operation|fn_toggle)$",
           "message": {
-            "pattern": "Must be one of a valid android KeyCode or one of: [move_current_end_point_left, move_current_end_point_right, move_current_end_point_up, move_current_end_point_down, selection_start, select_all, toggle_selection_anchor, shift_toggle, switch_to_main_keypad, switch_to_number_keypad, switch_to_symbols_keypad, switch_to_selection_keypad, switch_to_emoticon_keyboard, hide_keyboard, no_operation]"
+            "pattern": "Must be one of a valid android KeyCode or one of: [move_current_end_point_left, move_current_end_point_right, move_current_end_point_up, move_current_end_point_down, selection_start, select_all, toggle_selection_anchor, shift_toggle, switch_to_main_keypad, switch_to_number_keypad, switch_to_symbols_keypad, switch_to_selection_keypad, switch_to_emoticon_keyboard, hide_keyboard, no_operation,fn_toggle]"
           }
         },
         "lower_case": {
@@ -79,12 +80,14 @@
       }
     },
     "sectors": {
+      "$id": "sectors",
       "type": "object",
       "properties": {
         "sectors": {
           "type": "object",
           "patternProperties": {
             "^(?i)(left|right)$": {
+              "$id":"sector_left_right",
               "type": "object",
               "properties": {
                 "parts": {
@@ -104,6 +107,7 @@
               "additionalProperties": false
             },
             "^(?i)(top|bottom)$": {
+              "$id":"sector_top_bottom",
               "type": "object",
               "properties": {
                 "parts": {
@@ -129,6 +133,7 @@
       "additionalProperties": false
     },
     "actionList": {
+      "$id": "actionList",
       "type": "array",
       "items": {
         "$ref": "#/$defs/action"
@@ -137,17 +142,13 @@
       "message": {
         "maxItems": "There is only up to 4 actions per sectors/parts"
       }
-    }
-  },
-  "type": "object",
-  "properties": {
-    "version": {
-      "$ref": "/schemas/schema.json#version"
     },
     "info": {
+      "description": "Layout informations",
       "type": "object",
       "properties": {
         "contact": {
+          "description": "Contact informations of the author",
           "type": "object",
           "properties": {
             "email": {
@@ -173,57 +174,23 @@
       },
       "additionalProperties": false
     },
-    "layers": {
+    "extra_layers": {
       "type": "object",
-      "properties": {
-        "default": {
+      "patternProperties": {
+        "^(?i)(first|second|third|fourth|fifth)$": {
           "$ref": "#/$defs/sectors"
-        },
-        "extra_layers": {
-          "type": "object",
-          "patternProperties": {
-            "^(?i)(first|second|third|fourth|fifth)$": {
-              "$ref": "#/$defs/sectors"
-            }
-          },
-          "additionalProperties": false,
-          "message": {
-            "additionalProperties": "extra_layers can only have [first, second, third, fourth, fifth]"
-          }
-        },
-        "hidden": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/action"
-          }
         }
       },
       "additionalProperties": false,
-      "if": {
-        "required": ["extra_layers"]
-      },
-      "then": {
-        "required": ["default"],
-        "message": {
-          "required": "Default layer is required if extra_layers is defined"
-        }
-      },
-      "else": {
-        "if": {
-          "required": ["hidden"]
-        },
-        "then": {
-          "required": ["hidden"]
-        },
-        "else": {
-          "required": ["default"],
-          "message": {
-            "required": "default or hidden is required"
-          }
-        }
+      "message": {
+        "additionalProperties": "extra_layers can only have [first, second, third, fourth, fifth]"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/action"
       }
     }
-  },
-  "required": ["layers"],
-  "additionalProperties": false
+  }
 }

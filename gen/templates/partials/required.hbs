@@ -1,0 +1,22 @@
+{{~#* inline "cond"~}}
+{{~#each anyOf~}}
+{{> cond .}}{{#unless @last}} OR {{/unless}}
+{{~/each~}}
+{{~#with required~}}
+require field(s): 
+{{~#each .~}}
+`{{.}}`{{#unless @last}}, {{/unless}}
+{{~/each~}}
+{{~/with~}}
+{{~#with not~}}
+not {{> cond .}}
+{{~/with~}}
+{{~#each properties~}}
+`{{@key}}` to match `{{{pattern}}}`
+{{~/each~}}
+{{~/inline~}}
+{{~#with this.if~}}
+{{> cond .}}
+{{~else~}}
+{{{isRequired this}}}
+{{~/with~}}

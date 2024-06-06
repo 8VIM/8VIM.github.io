@@ -1,0 +1,7 @@
+{{#if properties}}
+|   |Type|Description|Required|
+|---|---|---|---|
+{{#each properties}}
+|**{{@key}}**|{{{getType this ../key @key}}}|{{description}}|{{{isRequired required}}}|
+{{/each}}
+{{/if}}

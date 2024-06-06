@@ -1,0 +1,24 @@
+<a name="{{key}}"></a>
+### {{title}}
+
+{{{description}}}
+
+* **Type(s)**
+{{#each (getType this key "")}}
+    * {{> linkPartial this}}
+{{#with (constraints type ../this)}}
+      <br />
+      Constraints
+      {{#each this}}
+        * {{> constraintPartial this}}
+      {{/each}}
+{{/with}}
+{{/each}}
+* **Required** {{>requiredPartial this.isRequired}}
+
+{{#if properties}}
+
+#### Properties
+
+{{> propertiesPartial properties=properties key=key}}
+{{/if}}

@@ -1,0 +1,10 @@
+{{#* inline "links"}}
+{{~#each this~}}
+{{> linkPartial this}}{{#unless @last}}, {{/unless}}
+{{~/each~}}
+{{/inline}}
+|   |Type|Description|Required|
+|---|---|---|---|
+{{#each properties}}
+|**{{@key}}**|{{~> links (getType this ../key @key)~}}|{{description}}|{{{isRequired this.isRequired}}}|
+{{/each}}
