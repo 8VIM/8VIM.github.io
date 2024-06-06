@@ -32,6 +32,7 @@ const config: Config = {
     mermaid: true,
   },
   themes: ["docusaurus-json-schema-plugin", "@docusaurus/theme-mermaid"],
+ 
   presets: [
     [
       "classic",
@@ -41,6 +42,8 @@ const config: Config = {
           editUrl: "https://github.com/8VIM/8VIM.github.io/blob/main/website/",
         },
         blog: {
+          path: "./releases",
+          routeBasePath:"/releases",
           blogTitle: "Releases",
           blogSidebarTitle: "Releases",
           showReadingTime: false,
@@ -69,7 +72,7 @@ const config: Config = {
           position: "left",
           label: "Usage",
         },
-        { to: "/blog", label: "Releases", position: "left" },
+        { to: "/releases", label: "Releases", position: "left" },
         {
           href: "https://github.com/8VIM/8VIM",
           label: "GitHub",
@@ -103,7 +106,7 @@ const config: Config = {
           items: [
             {
               label: "Releases",
-              to: "/blog",
+              to: "/releases",
             },
             {
               label: "GitHub",
