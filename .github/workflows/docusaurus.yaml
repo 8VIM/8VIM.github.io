@@ -24,7 +24,7 @@ jobs:
         run: npm install --frozen-lockfile
         working-directory: website
       - name: Build website
-        run: npm build
+        run: npm run build
         working-directory: website
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
