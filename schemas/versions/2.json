@@ -1,11 +1,11 @@
 {
-  "$id": "https://8vim.github.io/schemas/versions/2.1.json",
+  "$id": "https://8vim.github.io/schemas/versions/2.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "version": {
       "type": "string",
-      "const": "2.1"
+      "const": "2"
     },
     "info": {
       "$ref": "/schemas/common.json#/$defs/info"
@@ -21,13 +21,6 @@
         },
         "hidden": {
           "$ref": "/schemas/common.json#/$defs/actions"
-        },
-        "functions": {
-          "description": "Like hidden but requires 'fn button' to be active for being able to be triggered",
-          "type": "array",
-          "items": {
-            "$ref": "/schemas/common.json#/$defs/action"
-          }
         }
       },
       "additionalProperties": false,
@@ -46,50 +39,28 @@
       },
       "else": {
         "if": {
-          "anyOf": [
-            {
-              "required": [
-                "hidden"
-              ]
-            },
-            {
-              "required": [
-                "functions"
-              ]
-            }
+          "required": [
+            "hidden"
           ]
         },
         "then": {
-          "if": {
-            "required": [
-              "hidden"
-            ]
-          },
-          "then": {
-            "required": [
-              "hidden"
-            ]
-          },
-          "else": {
-            "required": [
-              "functions"
-            ]
-          }
+          "required": [
+            "hidden"
+          ]
         },
         "else": {
           "required": [
             "default"
           ],
           "message": {
-            "required": "default, hidden or functions is required"
+            "required": "default or hidden is required"
           }
         }
       }
     }
   },
   "required": [
-    "layers",
-    "version"
+    "layers"
   ],
   "additionalProperties": false
 }

@@ -32,7 +32,7 @@
     ]
   },
   "then": {
-    "$ref": "/schemas/versions/2.0.json"
+    "$ref": "/schemas/versions/2.json"
   },
   "else": {
     "if": {
