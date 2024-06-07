@@ -1,8 +1,1 @@
-{
-  "label": "Developper side",
-  "position": 999,
-  "link": {
-    "type": "generated-index",
-    "description": "Developper documentation"
-  }
-}
+../../versioned_docs/version-0.16-/dev/_category_.json

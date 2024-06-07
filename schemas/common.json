@@ -140,27 +140,34 @@
     },
     "info": {
       "type": "object",
+      "description": "Information about the layout",
       "properties": {
         "contact": {
+          "description": "Author information",
           "type": "object",
           "properties": {
             "email": {
+              "description": "Author email",
               "type": "string",
               "format": "email"
             },
             "name": {
+              "description": "Author name",
               "type": "string"
             }
           },
           "additionalProperties": false
         },
         "description": {
+          "description": "Layout description",
           "type": "string"
         },
         "name": {
+          "description": "Layout name",
           "type": "string"
         },
         "rtl": {
+          "description": "Is the language is written from right to left",
           "type": "boolean",
           "default": false
         }

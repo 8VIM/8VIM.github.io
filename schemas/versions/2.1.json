@@ -2,8 +2,10 @@
   "$id": "https://8vim.github.io/schemas/versions/2.1.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
+  "description": "Layout version 2.1",
   "properties": {
     "version": {
+      "description": "version should have the value `2.1`",
       "type": "string",
       "const": "2.1"
     },

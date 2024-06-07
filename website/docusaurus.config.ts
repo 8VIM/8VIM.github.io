@@ -29,6 +29,7 @@ const config: Config = {
     locales: ["en"],
   },
   markdown: {
+    format: 'detect',
     mermaid: true,
   },
   themes: [

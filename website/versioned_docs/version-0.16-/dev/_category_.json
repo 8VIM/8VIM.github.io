@@ -1,1 +1,8 @@
-../../../docs/dev/_category_.json
+{
+  "label": "Developper side",
+  "position": 999,
+  "link": {
+    "type": "generated-index",
+    "description": "Developper documentation"
+  }
+}

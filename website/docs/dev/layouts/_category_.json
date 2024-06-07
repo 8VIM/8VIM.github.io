@@ -1,8 +1,1 @@
-{
-  "label": "Layouts",
-  "position": 1,
-  "link": {
-    "type": "generated-index",
-    "description": "Layout documentation per version"
-  }
-}
+../../../versioned_docs/version-0.16-/dev/layouts/_category_.json
