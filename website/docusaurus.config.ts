@@ -4,7 +4,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "8VIM",
-  tagline: "Dinosaurs are cool",
+  tagline: "A small screen keyboard inspired by VIM and 8Pen",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -31,8 +31,12 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  themes: ["docusaurus-json-schema-plugin", "@docusaurus/theme-mermaid"],
- 
+  themes: [
+    "docusaurus-json-schema-plugin",
+    "@docusaurus/theme-mermaid",
+    "@orama/plugin-docusaurus-v3",
+  ],
+
   presets: [
     [
       "classic",
@@ -40,17 +44,35 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           editUrl: "https://github.com/8VIM/8VIM.github.io/blob/main/website/",
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "0.17+",
+              path: "/",
+            },
+          },
         },
         blog: {
           path: "./releases",
-          routeBasePath:"/releases",
+          routeBasePath: "/releases",
           blogTitle: "Releases",
           blogSidebarTitle: "Releases",
           showReadingTime: false,
           editUrl: "https://github.com/8VIM/8VIM.github.io/blob/main/website/",
+          feedOptions: {
+            type: "all",
+            title: "8VIM releases",
+            description: "Keep yourself up-to-date about all releases",
+            copyright: `${new Date().getFullYear()} 8VIM. Built with Docusaurus.`,
+            language: "en",
+          },
         },
         theme: {
           customCss: "./src/css/custom.css",
+        },
+        sitemap: {
+          changefreq: "weekly",
+          priority: 0.5,
         },
       } satisfies Preset.Options,
     ],
@@ -58,7 +80,6 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "8VIM",
       logo: {
@@ -74,6 +95,11 @@ const config: Config = {
         },
         { to: "/releases", label: "Releases", position: "left" },
         {
+          type: "docsVersionDropdown",
+          position: "right",
+          dropdownActiveClassDisabled: true,
+        },
+        {
           href: "https://github.com/8VIM/8VIM",
           label: "GitHub",
           position: "right",
@@ -88,7 +114,7 @@ const config: Config = {
           items: [
             {
               label: "Usage",
-              to: "/docs/intro",
+              to: "/docs",
             },
           ],
         },
