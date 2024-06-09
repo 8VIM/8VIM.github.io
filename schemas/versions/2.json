@@ -5,7 +5,7 @@
   "description": "Layout version 2",
   "properties": {
     "version": {
-      "description": "version can be ommited or have the value `2`",
+      "description": "Version can be ommited or have the value `2`",
       "type": "string",
       "const": "2"
     },
@@ -16,12 +16,14 @@
       "type": "object",
       "properties": {
         "default": {
+          "description": "Required if `extra_layers` is defined or at least as one of the other layers",
           "$ref": "/schemas/common.json#/$defs/sectors"
         },
         "extra_layers": {
           "$ref": "/schemas/common.json#/$defs/extra_layers"
         },
         "hidden": {
+          "description": "Required at least as one of layer",
           "$ref": "/schemas/common.json#/$defs/actions"
         }
       },

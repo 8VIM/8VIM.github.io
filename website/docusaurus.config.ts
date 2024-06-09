@@ -29,7 +29,6 @@ const config: Config = {
     locales: ["en"],
   },
   markdown: {
-    format: 'detect',
     mermaid: true,
   },
   themes: [
@@ -48,9 +47,12 @@ const config: Config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "0.17+",
+              label: "Latest",
               path: "/",
             },
+            "0.16.x": {
+              label: "<= 0.16.x"
+            }
           },
         },
         blog: {
@@ -58,6 +60,7 @@ const config: Config = {
           routeBasePath: "/releases",
           blogTitle: "Releases",
           blogSidebarTitle: "Releases",
+          blogSidebarCount: 'ALL',
           showReadingTime: false,
           editUrl: "https://github.com/8VIM/8VIM.github.io/blob/main/website/",
           feedOptions: {
