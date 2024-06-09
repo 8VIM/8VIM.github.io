@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # The origin of 8vim
 
 ## Extended Idea

@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Privacy Policy
 
 Thank you for using our Android app. This Privacy Policy is intended to inform you about the data we do not collect and how we ensure your privacy while using our app.
