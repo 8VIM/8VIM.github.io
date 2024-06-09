@@ -1,0 +1,43 @@
+---
+sidebar_class_name: new-feature
+---
+
+import ReactPlayer from "react-player";
+
+# Function button
+
+Sometimes some movements are triggered even if you did not mean it.
+
+Since that version, 8Vim has a new button on the sidebar called `fn`.
+
+If this button/feature is disabled some actions/movements marked as `function` won't be triggered. By default, this feature is on.
+
+## Disabled icon on the sidebar
+
+![fn_not_enabled](/img/fn-button/not-selected.png)
+
+## Enabled icon on the sidebar
+
+![fn_enabled](/img/fn-button/selected.png)
+
+## Settings
+
+The state when the keyboard is shown depends on the settings (default enabled)
+
+<ReactPlayer playing controls url="/videos/fn-button/settings.mp4" />
+
+## Example
+
+<ReactPlayer playing controls url="/videos/fn-button/example.mp4" />
+
+## Affected action/movements
+
+| Movement                      | Action            |
+| ----------------------------- | ----------------- |
+| Top -> Circle                 | Hide keyboard     |
+| Left -> Circle                | Paste             |
+| Right -> Circle (with repeat) | Selection         |
+| Circle -> Top                 | Move cursor up    |
+| Circle -> Bottom              | Move cursor down  |
+| Circle -> Left                | Move cursor left  |
+| Circle -> right               | Move cursor right |

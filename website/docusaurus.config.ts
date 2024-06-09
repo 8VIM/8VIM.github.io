@@ -31,6 +31,7 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
+  plugins: ["docusaurus-plugin-sass"],
   themes: [
     "docusaurus-json-schema-plugin",
     "@docusaurus/theme-mermaid",
@@ -51,8 +52,8 @@ const config: Config = {
               path: "/",
             },
             "0.16.x": {
-              label: "<= 0.16.x"
-            }
+              label: "<= 0.16.x",
+            },
           },
         },
         blog: {
@@ -60,7 +61,7 @@ const config: Config = {
           routeBasePath: "/releases",
           blogTitle: "Releases",
           blogSidebarTitle: "Releases",
-          blogSidebarCount: 'ALL',
+          blogSidebarCount: "ALL",
           showReadingTime: false,
           editUrl: "https://github.com/8VIM/8VIM.github.io/blob/main/website/",
           feedOptions: {
@@ -72,7 +73,7 @@ const config: Config = {
           },
         },
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: "./src/css/custom.scss",
         },
         sitemap: {
           changefreq: "weekly",

@@ -23,9 +23,12 @@
     "@orama/searchbox": "1.0.0-rc33",
     "clsx": "^2.0.0",
     "docusaurus-json-schema-plugin": "^1.12.0",
+    "docusaurus-plugin-sass": "^0.2.5",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-player": "^2.16.0",
+    "sass": "^1.77.4"
   },
   "requires": {
     "@orama/searchbox": "1.0.0-rc33"
