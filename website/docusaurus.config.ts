@@ -84,7 +84,12 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
+    mermaid: {
+      theme: {
+        light: "neutral",
+        dark: "dark",
+      },
+    },
     navbar: {
       title: "8VIM",
       logo: {

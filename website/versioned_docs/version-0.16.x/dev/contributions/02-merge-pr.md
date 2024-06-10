@@ -1,4 +1,4 @@
-# When a pull request (PR) is mergedo
+# When a pull request (PR) is merged
 
 ```mermaid
 graph TD
